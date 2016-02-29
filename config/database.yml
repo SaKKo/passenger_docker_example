@@ -1,0 +1,23 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+  port: 5432
+
+development:
+  <<: *default
+  database: passenger_docker_development
+
+test:
+  <<: *default
+  database: passenger_docker_test
+
+production:
+  <<: *default
+  host: postgres
+  database: postgres
+  username: postgres
+  password:
